@@ -1,0 +1,60 @@
+ioteca_service\pip install -r reqs.txt
+
+python manage.py runserver
+
+-----
+
+npm install
+
+npm install -g bower
+
+auth_web\bower install
+
+ioteca_web\bower install
+
+npm install -g gulp
+
+gulp serve
+
+
+
+
+
+Las urls se pueden modificar en:
+
+.\ioteca\auth_web\app\config.js
+
+.\ioteca\ioteca_web\app\config.js
+y
+.\ioteca\ioteca_web\ioteca_web_apps\auths\config.js
+y en los que se usa URLs
+
+
+// USER : admin
+// PASSWORD : 12345
+
+
+Backup database
+-------------------
+(ve_...) D:\practian o XXX\ioteca\ioteca_service>manage.py dumpdata > fixtures/ini_data.json --exclude=corsheaders
+
+
+Load o restore database
+-------------------
+See in the settings.py setting for FIXTURE_DIRS
+   (ve_...) ...>manage.py loaddata ini_data
+else 
+ 	(ve_...) ...>manage.py loaddata fixtures\ini_data.json
+
+
+Clean database
+-------------------
+Run the following command:
+
+    (ve_...) ..._api>manage.py flush
+    
+    and exec in admin db
+
+	  >delete from django_content_type;
+
+	  >delete from auth_permission;
