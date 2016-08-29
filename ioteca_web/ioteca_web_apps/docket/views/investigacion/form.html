@@ -1,0 +1,60 @@
+<md-dialog aria-label="Form" ng-cloak class="main" md-theme="{{ dynamicTheme }}">
+    <form name='myform'>
+
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span ng-hide="menu.id == null">Editar </span>
+                    <span ng-hide="menu.id">Nueva </span>
+                    Investigacion {{menu.id}} 
+                    
+                </h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <md-progress-circular layout-fill md-mode="indeterminate" ng-hide="true"></md-progress-circular>
+            <div class="md-dialog-content">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Editorial</label>
+                        <input ng-model="menu.editorial" required>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Fecha_Publicación</label>
+                        <input ng-model="menu.fecha_publicacion">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>ISBN</label>
+                        <input ng-model="menu.isbn">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Medio de Publicación</label>
+                        <input ng-model="menu.medio_publicacion">
+                    </md-input-container>  
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>N° Paginas</label>
+                        <input ng-model="menu.num_paginas">
+                    </md-input-container> 
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Tipo Publicación</label>
+                        <input ng-model="menu.tipo_publicacion">
+                    </md-input-container> 
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Titulo de Publicación</label>
+                        <input ng-model="menu.titulo_publicacion">
+                    </md-input-container> 
+                </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button type="reset" ng-click="cancel()" class="md-raised">Cancel</md-button>
+            <md-button type="submit" ng-click="save()" class="md-raised md-primary" ng-disabled="!myform.$valid">
+            save
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>  

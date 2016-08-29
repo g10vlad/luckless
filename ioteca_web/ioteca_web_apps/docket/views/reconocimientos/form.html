@@ -1,0 +1,65 @@
+<md-dialog ng-cloak class="newfrm-background" md-theme="{{ dynamicTheme }}">
+    <form name='myform'>
+
+      
+        <md-toolbar>
+            <div class="newfrm-simpletitle">
+                <h2>
+                    <span ng-hide="menu.id == null">Editar </span>
+                    <span ng-hide="menu.id">Nuevo </span>
+                    item {{menu.id}} 
+                    
+                
+                <span flex></span>
+                <md-button class="newfrm-exit" ng-click="cancel()">
+                    <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
+                </md-button>
+                </h2>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+         
+            <md-progress-circular layout-fill md-mode="indeterminate" ng-hide="true"></md-progress-circular>
+            <div class="newfrm-caps">
+
+                <div layout-gt-sm="column">
+                 
+                    <md-input-container class="newfrm-font" flex-gt-sm>
+                        <label>Institución</label>
+                        <input ng-model="menu.institucion" required>
+                    </md-input-container>
+                    <md-input-container class="newfrm-font" flex-gt-sm>
+                        <label>Reconocimiento</label>
+                        <input ng-model="menu.reconocimiento">
+                    </md-input-container>
+                    <md-input-container class="newfrm-font" flex-gt-sm>
+                        <label>Fecha</label>
+                        <input ng-model="menu.fecha">
+                    </md-input-container>
+                    <!-- <input type="datetime" date-time ng-model="menu.fecha" min-view="date" auto-close="true"
+                    view="date" maxlength="10" placeholder="Set Date" format="yyyy-MM-dd"> -->
+                    <md-input-container class="newfrm-font" flex-gt-sm>
+                        <label>Lugar</label>
+                        <input ng-model="menu.lugar" required>
+                    </md-input-container>
+                    <md-input-container class="newfrm-font" flex-gt-sm>
+                        <label>Fuente</label>
+                        <input ng-model="menu.fuente" required>
+                    </md-input-container> 
+                    
+            
+                  </md-select>
+                </div>
+            </div>
+         
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button type="submit" ng-click="save()" class="newfrm-button" ng-disabled="!myform.$valid">
+                Guardar
+            </md-button>
+            <md-button type="reset" ng-click="cancel()" class="md-raised">Cancelar</md-button>
+        </md-dialog-actions>
+      
+    </form>
+</md-dialog> 

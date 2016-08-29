@@ -1,0 +1,103 @@
+<div ng-cloak>
+    <md-content class="gen-background" layout-xs="column">
+        <div flex-xs flex-gt-xs class="fbod3">
+            <md-card ng-controller="ReconocimientoCtrl">
+              <div class="fbod2">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline_ver2">Reconocimientos</span>
+                        <!-- <span class="md-subhead">Listado de Reconocimientos</span> -->
+                    </md-card-title-text>
+                </md-card-title>
+                <!-- <md-divider></md-divider> -->
+                <md-card-actions layout="row" layout-align="start center" layout-xs="column">
+                    <md-card-icon-actions>
+                        <!--
+                        <md-button class="md-fab md-mini md-primary" aria-label="Add" ng-click="new($event)">
+                            <ng-md-icon icon="add" aria-label="title"></ng-md-icon>
+                        </md-button>
+                    -->
+                        <md-button class="fbod4" aria-label="Mostrar todo" ng-click="listAll()">
+                            Mostrar todo
+                        </md-button>
+                        <md-button class="md-fab md-mini md-warn" aria-label="Add" ng-click="new($event)">
+                            <md-tooltip md-autohide>Agregar</md-tooltip>
+                            <ng-md-icon icon="add" aria-label="title"></ng-md-icon>
+                        </md-button>
+                    </md-card-icon-actions>
+                    <span flex></span>
+                    <md-card-icon-actions layout-align="end center">
+                        <input placeholder="Buscar" ng-model="query" ng-keyup="buscar()">
+                        <md-button class="md-icon-button" aria-label="Share">
+                            <ng-md-icon icon="more_vert" aria-label="title"></ng-md-icon>
+                        </md-button>
+                    </md-card-icon-actions>
+                </md-card-actions>
+                <md-divider></md-divider>
+              <div class="list-design_v2">
+                <md-table-container>
+                    <table md-table data-md-row-select="" mi-table>
+                        <thead md-head>
+                            <tr md-row>
+                                <th md-column>#</th>
+                                <th md-column md:order:by="name">Institución</th>
+                                <th md-column md:order:by="name">Reconocimiento</th>
+                                <th md-column md:order:by="name">Fecha</th>
+                                <th md-column>Lugar</th>
+                                <th md-column>Fuente</th>
+                                <th md-column colspan='2' align='center'>+Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row ng-repeat="r in lista">
+                                <td md-cell>{{ (options.page - 1) * options.page_size +$index +1 }}</td>
+                                <td md-cell> {{ r.institucion }}</td>
+                                <td md-cell> {{ r.reconocimiento }}</td>
+                                <td md-cell> {{ r.fecha }}</td>
+                                <td md-cell> {{ r.lugar }}</td>
+                                <td md-cell> {{ r.fuente }}</td>
+                                <td md-cell class="gen-iconbutton2">
+                                    <md-button class="gen-iconbutton" aria-label="Edit" ng-click="sel(r)">
+                                        <md-tooltip md-autohide>Editar {{ r.nombre }}</md-tooltip>
+                                        <ng-md-icon icon="edit" aria-label="Edit"></ng-md-icon>
+                                    </md-button>
+                                </td>
+                                <td md-cell class="gen-iconbutton2">
+                                    <md-button class="gen-iconbutton" aria-label="delete" ng-click="delete(r)">
+                                        <md-tooltip md-autohide>Eliminar {{ r.nombre }}</md-tooltip>
+                                        <ng-md-icon icon="delete" aria-label="delete"></ng-md-icon>
+                                    </md-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+               </div>
+                <md-table-pagination>
+                    <table>
+                        <tfoot>
+                            <tr>
+                                <td>
+                                    <app-pagination ng-if="options.pages>0" per="options.page_size" page="options.page" format="{{'jumping'}}" display="4" rango="options.range" accion="list(params)" pages="options.pages" query="query" fields="{{fields}}"></app-pagination>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </md-table-pagination>
+                <md-table-pagination>
+                    <table>
+                        <tfoot>
+                            <tr>
+                                <td colspan="10">
+                                    <mi-pagination page="options.page" pages="options.pages" next="options.next" previous="options.previous" rango="options.range" activado="myactive" accion="list(params)" query="query">
+                                    </mi-pagination>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </md-table-pagination>
+              </div>
+            </md-card>
+        </div>
+    </md-content>
+</div> 
